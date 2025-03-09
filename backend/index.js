@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const http = require("http");
 const { Server } = require("socket.io");
@@ -6,6 +7,28 @@ const cheerio = require("cheerio");
 const cors = require("cors");
 const exif = require('exif-reader');
 const sizeOf = require('buffer-image-size');
+const { Amplify } = require('aws-amplify');
+
+// Configure Amplify Gen 2
+const config = {
+    Auth: {
+        Cognito: {
+            region: process.env.AWS_REGION || 'us-east-1',
+            userPoolId: process.env.AWS_USER_POOL_ID,
+            userPoolClientId: process.env.AWS_USER_POOL_CLIENT_ID
+        }
+    },
+    API: {
+        REST: {
+            'api': {
+                endpoint: process.env.API_ENDPOINT,
+                region: process.env.AWS_REGION || 'us-east-1'
+            }
+        }
+    }
+};
+
+Amplify.configure(config);
 
 const app = express();
 const server = http.createServer(app);
