@@ -4,6 +4,7 @@
 The backend of this application is designed to receive URLs via **Socket.io** and fetch the content using the **Axios** library. It processes the fetched HTML using **Cheerio**, extracting specific elements like `<a>` and `<img>`. Additionally, the backend utilizes **Exif** and **buffer-image-size** to extract metadata, which is then sent back to the existing socket connection. 
 
 Backed application needs below packages to be installed and make sure your port 5000 is avaailbale for front-end to connect:
+
 ```npm install aws-amplify@^4.3.21-beta.8 axios@^1.8.2 buffer-image-size@^0.6.4 cheerio@^1.0.0 cors@^2.8.5 dotenv@^16.4.7 exif-reader@^2.0.2 express@^4.21.2 image-size@^2.0.0 socket.io@^4.8.1 socket.io-client@^4.8.1```
 
 ![ Screenshot of Application ](https://github.com/matinmlk/MadElevator/blob/main/images/Screenshot%202025-03-09%20121555.png?raw=true)
